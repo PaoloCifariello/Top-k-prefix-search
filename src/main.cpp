@@ -9,6 +9,9 @@
 #include "trie.cpp"
 #include <sstream>
 
+#include "../lib/rsdic/RSDicBuilder.hpp"
+#include "../lib/rsdic/RSDic.hpp"
+
 void runTest1() {
     Trie t = Trie();
     
@@ -30,9 +33,7 @@ void runTest1() {
             } else {
                 t.addWord(randStr.str(), false);
             }
-            
         }
-        
     }
     
     for (int i = 0; i < query; i++) {

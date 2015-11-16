@@ -30,13 +30,13 @@ struct myComp {
 class Node {
 private:
     char label;
+    int left;
+    int right;
+public:
     unique_ptr<Node> leftnode;
     unique_ptr<Node> eqnode;
     unique_ptr<Node> rightnode;
-    int left;
-    int right;
     
-public:
     Node(vector<string> &strings, int sx, int dx, int starting_index, bool to_sort) {
         if (starting_index > 6) {
             return;

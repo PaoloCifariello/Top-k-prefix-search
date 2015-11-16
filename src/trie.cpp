@@ -14,7 +14,7 @@
 
 class Trie {
 private:
-    size_t SIZE_LIMIT = 99999;
+    size_t SIZE_LIMIT = 1000;
     vector<string> words = vector<string>();
     vector<string> dictionary = vector<string>();
     unique_ptr<Node> head;
@@ -30,13 +30,47 @@ private:
         sort(dictionary.begin(), dictionary.end());
         dictionary.erase(unique(dictionary.begin(), dictionary.end()), dictionary.end());
         this->head = unique_ptr<Node>(new Node(dictionary, 0, dictionary.size() - 1, 0, false));
+        
+        /* creates the succint data structure */
+        rsdic::RSDicBuilder rsdb;
+        rsdb.PushBack(1);
+        succintTree(this->head, rsdb);
+        rsdic::RSDic rsd;
+        rsdb.Build(rsd);
+        cout << rsd.num() << endl;
+    }
+    
+    /* Creation of the succinct data structure */
+    void succintTree(unique_ptr<Node>& node, rsdic::RSDicBuilder& rsdb) {
+        if (node != nullptr) {
+            if (node->leftnode != nullptr)
+                rsdb.PushBack(1);
+            if (node->eqnode != nullptr)
+                rsdb.PushBack(1);
+            if (node->rightnode != nullptr)
+                rsdb.PushBack(1);
+        }
+
+        rsdb.PushBack(0);
+        
+        if (node->leftnode != nullptr)
+            succintTree(node->leftnode, rsdb);
+        if (node->eqnode != nullptr)
+            succintTree(node->eqnode, rsdb);
+        if (node->rightnode != nullptr)
+            succintTree(node->rightnode, rsdb);
     }
 public:
-    // Trie contructor
+    /* 
+     *  Trie contructor
+     */
     Trie() {
         this->head = unique_ptr<Node>();
     }
     
+    /**
+     *  Add word to the collection
+     */
     void addWord(string word) {
         this->words.push_back(word);
         
@@ -45,20 +79,15 @@ public:
         }
     }
 
+    /**
+     *  Add word to the collection and trigger the reconstruction if true is passed
+     */
     void addWord(string word, bool reconstruct) {
         this->words.push_back(word);
         
         if (reconstruct) {
             this->reconstruct();
         }
-    }
-    
-    bool exists(string word) {
-        for (int i = 0; i < this->words.size(); i++) {
-            if (this->words.at(i).compare(word) == 0)
-                return true;
-        }
-        return false;
     }
     
     Iterator lookup(string p) {
