@@ -9,9 +9,12 @@
 #include "node.cpp"
 #include "iterator.cpp"
 
+#include "../lib/rsdic/RSDicBuilder.hpp"
+#include "../lib/rsdic/RSDic.hpp"
+
 class Trie {
 private:
-    size_t SIZE_LIMIT = 5;
+    size_t SIZE_LIMIT = 99999;
     vector<string> words = vector<string>();
     vector<string> dictionary = vector<string>();
     unique_ptr<Node> head;
@@ -22,7 +25,11 @@ private:
         
         if (this->head != nullptr)
             this->head->~Node();
-        this->head = unique_ptr<Node>(new Node(dictionary, 0, dictionary.size() - 1, 0, true));
+        
+        /* Remove duplicates */
+        sort(dictionary.begin(), dictionary.end());
+        dictionary.erase(unique(dictionary.begin(), dictionary.end()), dictionary.end());
+        this->head = unique_ptr<Node>(new Node(dictionary, 0, dictionary.size() - 1, 0, false));
     }
 public:
     // Trie contructor
@@ -37,6 +44,14 @@ public:
             this->reconstruct();
         }
     }
+
+    void addWord(string word, bool reconstruct) {
+        this->words.push_back(word);
+        
+        if (reconstruct) {
+            this->reconstruct();
+        }
+    }
     
     bool exists(string word) {
         for (int i = 0; i < this->words.size(); i++) {
@@ -48,6 +63,8 @@ public:
     
     Iterator lookup(string p) {
         pair<int, int>* indexes = this->head->lookup(p, 0);
-        return Iterator(this->dictionary, indexes);
+        Iterator it = Iterator(this->dictionary, indexes);
+        free(indexes);
+        return it;
     }
 };

@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		593CAE851BFA54B80032993D /* EnumCoder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 593CAE781BFA54B80032993D /* EnumCoder.cpp */; };
+		593CAE871BFA54B80032993D /* RSDic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 593CAE7B1BFA54B80032993D /* RSDic.cpp */; };
+		593CAE881BFA54B80032993D /* RSDicBuilder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 593CAE7D1BFA54B80032993D /* RSDicBuilder.cpp */; };
 		599130A01BF5004000D8F741 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5991309E1BF5004000D8F741 /* main.cpp */; };
 		599130A11BF5004000D8F741 /* trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5991309F1BF5004000D8F741 /* trie.cpp */; };
 		599130A41BF5099900D8F741 /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 599130A31BF5099900D8F741 /* node.cpp */; };
 		59CBAA581BF9FB0E0022F629 /* iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59CBAA561BF9FB0E0022F629 /* iterator.cpp */; };
+		59CECEE81BFA2BC6009517E1 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59CECEE61BFA2BC6009517E1 /* test.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,12 +30,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		593CAE781BFA54B80032993D /* EnumCoder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = EnumCoder.cpp; path = lib/rsdic/EnumCoder.cpp; sourceTree = "<group>"; };
+		593CAE791BFA54B80032993D /* EnumCoder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = EnumCoder.hpp; path = lib/rsdic/EnumCoder.hpp; sourceTree = "<group>"; };
+		593CAE7B1BFA54B80032993D /* RSDic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RSDic.cpp; path = lib/rsdic/RSDic.cpp; sourceTree = "<group>"; };
+		593CAE7C1BFA54B80032993D /* RSDic.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RSDic.hpp; path = lib/rsdic/RSDic.hpp; sourceTree = "<group>"; };
+		593CAE7D1BFA54B80032993D /* RSDicBuilder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RSDicBuilder.cpp; path = lib/rsdic/RSDicBuilder.cpp; sourceTree = "<group>"; };
+		593CAE7E1BFA54B80032993D /* RSDicBuilder.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = RSDicBuilder.hpp; path = lib/rsdic/RSDicBuilder.hpp; sourceTree = "<group>"; };
+		593CAE811BFA54B80032993D /* Type.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Type.hpp; path = lib/rsdic/Type.hpp; sourceTree = "<group>"; };
+		593CAE821BFA54B80032993D /* Util.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Util.hpp; path = lib/rsdic/Util.hpp; sourceTree = "<group>"; };
 		5991308B1BF4FE8200D8F741 /* Top-k-prefix-search */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Top-k-prefix-search"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5991309E1BF5004000D8F741 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
 		5991309F1BF5004000D8F741 /* trie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = trie.cpp; path = src/trie.cpp; sourceTree = "<group>"; };
 		599130A31BF5099900D8F741 /* node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = node.cpp; path = src/node.cpp; sourceTree = "<group>"; };
 		59CBAA561BF9FB0E0022F629 /* iterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iterator.cpp; path = src/iterator.cpp; sourceTree = "<group>"; };
 		59CECEE51BFA14C5009517E1 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		59CECEE61BFA2BC6009517E1 /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test.cpp; path = test/test.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,11 +58,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		593CAE771BFA54640032993D /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				593CAE8C1BFA54C30032993D /* rsdic */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		593CAE8C1BFA54C30032993D /* rsdic */ = {
+			isa = PBXGroup;
+			children = (
+				593CAE781BFA54B80032993D /* EnumCoder.cpp */,
+				593CAE791BFA54B80032993D /* EnumCoder.hpp */,
+				593CAE7B1BFA54B80032993D /* RSDic.cpp */,
+				593CAE7C1BFA54B80032993D /* RSDic.hpp */,
+				593CAE7D1BFA54B80032993D /* RSDicBuilder.cpp */,
+				593CAE7E1BFA54B80032993D /* RSDicBuilder.hpp */,
+				593CAE811BFA54B80032993D /* Type.hpp */,
+				593CAE821BFA54B80032993D /* Util.hpp */,
+			);
+			name = rsdic;
+			sourceTree = "<group>";
+		};
 		599130821BF4FE8100D8F741 = {
 			isa = PBXGroup;
 			children = (
+				593CAE771BFA54640032993D /* lib */,
 				59CECEE51BFA14C5009517E1 /* CMakeLists.txt */,
 				5991308C1BF4FE8200D8F741 /* Products */,
+				59CECEE91BFA2BD2009517E1 /* test */,
 				5991309D1BF5003300D8F741 /* src */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +109,14 @@
 				59CBAA561BF9FB0E0022F629 /* iterator.cpp */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		59CECEE91BFA2BD2009517E1 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				59CECEE61BFA2BC6009517E1 /* test.cpp */,
+			);
+			name = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +177,12 @@
 			files = (
 				599130A01BF5004000D8F741 /* main.cpp in Sources */,
 				599130A11BF5004000D8F741 /* trie.cpp in Sources */,
+				593CAE851BFA54B80032993D /* EnumCoder.cpp in Sources */,
+				593CAE881BFA54B80032993D /* RSDicBuilder.cpp in Sources */,
 				599130A41BF5099900D8F741 /* node.cpp in Sources */,
+				59CECEE81BFA2BC6009517E1 /* test.cpp in Sources */,
 				59CBAA581BF9FB0E0022F629 /* iterator.cpp in Sources */,
+				593CAE871BFA54B80032993D /* RSDic.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

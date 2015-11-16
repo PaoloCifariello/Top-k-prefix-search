@@ -29,9 +29,10 @@ struct myComp {
 
 class Node {
 private:
-    const static int FANOUT = 1;
-    char labels[FANOUT];
-    unique_ptr<Node> children[2 * FANOUT + 1];
+    char label;
+    unique_ptr<Node> leftnode;
+    unique_ptr<Node> eqnode;
+    unique_ptr<Node> rightnode;
     int left;
     int right;
     
@@ -49,7 +50,7 @@ public:
         /* Find half string at its character at starting_index in order to choose node label */
         int half = (sx + dx)/2;
         char label = strings.at(half)[starting_index];
-        this->labels[0] = label;
+        this->label = label;
         
         int left = half - 1;
         int right = half + 1;
@@ -72,20 +73,20 @@ public:
         }
         
         if (realsx > right - 1) {
-            this->children[1] = nullptr;
+            this->eqnode = nullptr;
         } else {
-            this->children[1] = unique_ptr<Node>(new Node(strings, realsx, right - 1, starting_index + 1, true));
+            this->eqnode = unique_ptr<Node>(new Node(strings, realsx, right - 1, starting_index + 1, true));
         }
         if (left < sx) {
-            this->children[0] = nullptr;
+            this->leftnode = nullptr;
         } else {
-            this->children[0] = unique_ptr<Node>(new Node(strings, sx,  left, starting_index, false));
+            this->leftnode = unique_ptr<Node>(new Node(strings, sx,  left, starting_index, false));
         }
         
         if (right > dx) {
-            this->children[2] = nullptr;
+            this->rightnode = nullptr;
         } else {
-            this->children[2] = unique_ptr<Node>(new Node(strings, right,  dx, starting_index, false));
+            this->rightnode = unique_ptr<Node>(new Node(strings, right,  dx, starting_index, false));
         }
     }
     
@@ -96,21 +97,21 @@ public:
         char matchChar = p.at(starting_index);
         unique_ptr<Node> r;
         
-        if (matchChar == this->labels[0]) {
-            if (children[1] == nullptr)
+        if (matchChar == this->label) {
+            if (this->eqnode == nullptr)
                 return NULL;
 
-            return this->children[1]->lookup(p, starting_index + 1);
-        } else if (matchChar < this->labels[0]) {
-            if (children[0] == nullptr)
+            return this->eqnode->lookup(p, starting_index + 1);
+        } else if (matchChar < this->label) {
+            if (this->leftnode == nullptr)
                 return NULL;
 
-            return this->children[0]->lookup(p, starting_index);
+            return this->leftnode->lookup(p, starting_index);
         } else {
-            if (children[2] == nullptr)
+            if (this->rightnode == nullptr)
                 return NULL;
 
-            return this->children[2]->lookup(p, starting_index);
+            return this->rightnode->lookup(p, starting_index);
         }
     }
 };
