@@ -1,0 +1,12 @@
+bin
+CMakeFiles
+## Other
+*.xccheckout
+*.moved-aside
+*.xcuserstate
+*.xcscmblueprint
+*.xcscheme
+**/xcuserdata
+CMakeCache.txt
+cmake_install.cmake
+Makefile

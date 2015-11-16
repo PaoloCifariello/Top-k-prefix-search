@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5991308F1BF4FE8200D8F741 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5991308E1BF4FE8200D8F741 /* main.cpp */; };
+		599130A01BF5004000D8F741 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5991309E1BF5004000D8F741 /* main.cpp */; };
+		599130A11BF5004000D8F741 /* trie.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5991309F1BF5004000D8F741 /* trie.cpp */; };
+		599130A41BF5099900D8F741 /* node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 599130A31BF5099900D8F741 /* node.cpp */; };
+		59CBAA581BF9FB0E0022F629 /* iterator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 59CBAA561BF9FB0E0022F629 /* iterator.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +26,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5991308B1BF4FE8200D8F741 /* Top-k-prefix */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Top-k-prefix"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5991308E1BF4FE8200D8F741 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5991308B1BF4FE8200D8F741 /* Top-k-prefix-search */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Top-k-prefix-search"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5991309E1BF5004000D8F741 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+		5991309F1BF5004000D8F741 /* trie.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = trie.cpp; path = src/trie.cpp; sourceTree = "<group>"; };
+		599130A31BF5099900D8F741 /* node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = node.cpp; path = src/node.cpp; sourceTree = "<group>"; };
+		59CBAA561BF9FB0E0022F629 /* iterator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = iterator.cpp; path = src/iterator.cpp; sourceTree = "<group>"; };
+		59CECEE51BFA14C5009517E1 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,33 +48,37 @@
 		599130821BF4FE8100D8F741 = {
 			isa = PBXGroup;
 			children = (
-				5991308D1BF4FE8200D8F741 /* Top-k-prefix */,
+				59CECEE51BFA14C5009517E1 /* CMakeLists.txt */,
 				5991308C1BF4FE8200D8F741 /* Products */,
+				5991309D1BF5003300D8F741 /* src */,
 			);
 			sourceTree = "<group>";
 		};
 		5991308C1BF4FE8200D8F741 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5991308B1BF4FE8200D8F741 /* Top-k-prefix */,
+				5991308B1BF4FE8200D8F741 /* Top-k-prefix-search */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5991308D1BF4FE8200D8F741 /* Top-k-prefix */ = {
+		5991309D1BF5003300D8F741 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				5991308E1BF4FE8200D8F741 /* main.cpp */,
+				5991309E1BF5004000D8F741 /* main.cpp */,
+				5991309F1BF5004000D8F741 /* trie.cpp */,
+				599130A31BF5099900D8F741 /* node.cpp */,
+				59CBAA561BF9FB0E0022F629 /* iterator.cpp */,
 			);
-			path = "Top-k-prefix";
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5991308A1BF4FE8200D8F741 /* Top-k-prefix */ = {
+		5991308A1BF4FE8200D8F741 /* Top-k-prefix-search */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 599130921BF4FE8200D8F741 /* Build configuration list for PBXNativeTarget "Top-k-prefix" */;
+			buildConfigurationList = 599130921BF4FE8200D8F741 /* Build configuration list for PBXNativeTarget "Top-k-prefix-search" */;
 			buildPhases = (
 				599130871BF4FE8200D8F741 /* Sources */,
 				599130881BF4FE8200D8F741 /* Frameworks */,
@@ -77,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = "Top-k-prefix";
+			name = "Top-k-prefix-search";
 			productName = "Top-k-prefix";
-			productReference = 5991308B1BF4FE8200D8F741 /* Top-k-prefix */;
+			productReference = 5991308B1BF4FE8200D8F741 /* Top-k-prefix-search */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 599130861BF4FE8100D8F741 /* Build configuration list for PBXProject "Top-k-prefix" */;
+			buildConfigurationList = 599130861BF4FE8100D8F741 /* Build configuration list for PBXProject "Top-k-prefix-search" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -108,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5991308A1BF4FE8200D8F741 /* Top-k-prefix */,
+				5991308A1BF4FE8200D8F741 /* Top-k-prefix-search */,
 			);
 		};
 /* End PBXProject section */
@@ -118,7 +129,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5991308F1BF4FE8200D8F741 /* main.cpp in Sources */,
+				599130A01BF5004000D8F741 /* main.cpp in Sources */,
+				599130A11BF5004000D8F741 /* trie.cpp in Sources */,
+				599130A41BF5099900D8F741 /* node.cpp in Sources */,
+				59CBAA581BF9FB0E0022F629 /* iterator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,21 +221,21 @@
 		599130931BF4FE8200D8F741 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Top-k-prefix-search";
 			};
 			name = Debug;
 		};
 		599130941BF4FE8200D8F741 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Top-k-prefix-search";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		599130861BF4FE8100D8F741 /* Build configuration list for PBXProject "Top-k-prefix" */ = {
+		599130861BF4FE8100D8F741 /* Build configuration list for PBXProject "Top-k-prefix-search" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				599130901BF4FE8200D8F741 /* Debug */,
@@ -230,13 +244,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		599130921BF4FE8200D8F741 /* Build configuration list for PBXNativeTarget "Top-k-prefix" */ = {
+		599130921BF4FE8200D8F741 /* Build configuration list for PBXNativeTarget "Top-k-prefix-search" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				599130931BF4FE8200D8F741 /* Debug */,
 				599130941BF4FE8200D8F741 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

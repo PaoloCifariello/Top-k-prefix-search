@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Top-k-prefix.xcodeproj">
+      location = "self:/Users/paolocifariello/Develop/C++/Top-k-prefix/Top-k-prefix-search.xcodeproj">
    </FileRef>
 </Workspace>
