@@ -1,0 +1,6 @@
+project(top-k-prefix-searching)
+cmake_minimum_required(VERSION 2.8)
+add_executable(top-k-prefix-searching src/trie.cpp src/node.cpp src/iterator.cpp src/main.cpp)
+install(TARGETS top-k-prefix-searching RUNTIME DESTINATION bin)
+add_subdirectory(src)
+target_compile_options(top-k-prefix-searching PUBLIC -std=c++11 -O3)
